@@ -50,7 +50,7 @@ IF EXISTS(
 -- Create tables
 --
 CREATE TABLE DimCustomer
- (Customer_SK INT IDENTITY(1,1) CONSTRAINT pk_customer_sk PRIMARY KEY,
+ (Customer_SK INT NOT NULL IDENTITY(1,1) CONSTRAINT pk_customer_sk PRIMARY KEY,
   Customer_AK INT NOT NULL,
   Type    NVARCHAR(25) NOT NULL,
   City    NVARCHAR(50) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE DimCustomer
  );
 --
 CREATE TABLE DimProperty
- (Property_SK  INT IDENTITY(1,1) CONSTRAINT pk_property_sk PRIMARY KEY,
+ (Property_SK  INT NOT NULL IDENTITY(1,1) CONSTRAINT pk_property_sk PRIMARY KEY,
   Property_AK INT NOT NULL,
   Type NVARCHAR(30) NOT NULL,
   Zone NVARCHAR(4) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE DimDate
  );
 --
 CREATE TABLE DimBidAgent
- (BidAgent_SK   INT IDENTITY(1,1) CONSTRAINT pk_bid_agent_sk PRIMARY KEY,
+ (BidAgent_SK   INT NOT NULL IDENTITY(1,1) CONSTRAINT pk_bid_agent_sk PRIMARY KEY,
   BidAgent_AK INT NOT NULL,
   FirstName NVARCHAR(30) NOT NULL,
   LastName  NVARCHAR(30) NOT NULL,
@@ -96,10 +96,10 @@ CREATE TABLE DimBidAgent
 );
 --
 CREATE TABLE FactBids
- (BidDate_AK INT CONSTRAINT fk_bid_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
-  BidAgent_SK INT CONSTRAINT fk_bid_agent_sk FOREIGN KEY REFERENCES DimBidAgent(BidAgent_SK),
-  ListingDate_SK INT CONSTRAINT fk_listing_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
-  Property_SK INT CONSTRAINT fk_property_sk FOREIGN KEY REFERENCES DimProperty(Property_SK),
+ (BidDate_AK INT NOT NULL CONSTRAINT fk_bid_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
+  BidAgent_SK INT NOT NULL CONSTRAINT fk_bid_agent_sk FOREIGN KEY REFERENCES DimBidAgent(BidAgent_SK),
+  ListingDate_SK INT NOT NULL CONSTRAINT fk_listing_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
+  Property_SK INT NOT NULL CONSTRAINT fk_property_sk FOREIGN KEY REFERENCES DimProperty(Property_SK),
   Customer_SK INT NOT NULL CONSTRAINT fk_customer_sk FOREIGN KEY REFERENCES DimCustomer(Customer_SK),
   ListingPrice DECIMAL(10,2) NOT NULL,
   BidPrice DECIMAL(10,2) NOT NULL,
