@@ -45,7 +45,7 @@ IF EXISTS(
        )
  DROP TABLE DimCustomer;
 --
-
+	
 --
 -- Create tables
 --
@@ -55,7 +55,7 @@ CREATE TABLE DimCustomer
   Type    NVARCHAR(25) NOT NULL,
   City    NVARCHAR(50) NOT NULL,
   State   NVARCHAR(20) NOT NULL,
-  Zipcode NVARCHAR(10) NOT NULL
+  ZipCode NVARCHAR(10) NOT NULL
  );
 --
 CREATE TABLE DimProperty
@@ -71,7 +71,7 @@ CREATE TABLE DimProperty
   YearBuilt NUMERIC(4) NOT NULL,
   City    NVARCHAR(25) NOT NULL,
   State   NVARCHAR(25) NOT NULL,
-  Zipcode NVARCHAR(10) NOT NULL
+  ZipCode NVARCHAR(10) NOT NULL
  );
 --
 CREATE TABLE DimDate
