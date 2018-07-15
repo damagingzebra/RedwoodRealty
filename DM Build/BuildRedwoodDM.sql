@@ -77,7 +77,9 @@ CREATE TABLE DimProperty
 CREATE TABLE DimDate
  (Date_SK   INT NOT NULL CONSTRAINT pk_date_sk PRIMARY KEY,
   Date      Date NOT NULL,
+  DateName  NVARCHAR(25) NOT NULL,
   Year      INT NOT NULL,
+  YearName  NVARCHAR(25) NOT NULL,
   Quarter   INT NOT NULL,
   QuarterName  NVARCHAR(25) NOT NULL,
   Month     INT NOT NULL,
@@ -96,9 +98,9 @@ CREATE TABLE DimBidAgent
 );
 --
 CREATE TABLE FactBids
- (BidDate_AK INT NOT NULL CONSTRAINT fk_bid_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
+ (BidDate INT NOT NULL CONSTRAINT fk_bid_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
   BidAgent_SK INT NOT NULL CONSTRAINT fk_bid_agent_sk FOREIGN KEY REFERENCES DimBidAgent(BidAgent_SK),
-  ListingDate_SK INT NOT NULL CONSTRAINT fk_listing_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
+  ListingDate INT NOT NULL CONSTRAINT fk_listing_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
   Property_SK INT NOT NULL CONSTRAINT fk_property_sk FOREIGN KEY REFERENCES DimProperty(Property_SK),
   Customer_SK INT NOT NULL CONSTRAINT fk_customer_sk FOREIGN KEY REFERENCES DimCustomer(Customer_SK),
   ListingPrice DECIMAL(10,2) NOT NULL,

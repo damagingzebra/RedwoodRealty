@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Solution Documentation",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Build", "DM Build", "{5C96C5A5-B4AE-4581-8FFB-0F3C6AEF765B}"
 	ProjectSection(SolutionItems) = preProject
-		BuildRedwoodDM.sql = BuildRedwoodDM.sql
+		DM Build\BuildRedwoodDM.sql = DM Build\BuildRedwoodDM.sql
 	EndProjectSection
 EndProject
 Global
