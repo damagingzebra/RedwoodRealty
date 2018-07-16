@@ -5,6 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Solution Documentation", "DM Solution Documentation", "{D81AE800-B202-46D3-BF9B-3303AD90C651}"
 	ProjectSection(SolutionItems) = preProject
+		DM Solution Documentaion\RechargeDM_Diagram.png = DM Solution Documentaion\RechargeDM_Diagram.png
 		DM Solution Documentaion\Redwood Solution Documentation.docx = DM Solution Documentaion\Redwood Solution Documentation.docx
 		DM Solution Documentaion\Redwood Solution Model.vsdx = DM Solution Documentaion\Redwood Solution Model.vsdx
 		DM Solution Documentaion\Redwood Solution Workbook.xlsx = DM Solution Documentaion\Redwood Solution Workbook.xlsx
@@ -12,7 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Solution Documentation",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Build", "DM Build", "{5C96C5A5-B4AE-4581-8FFB-0F3C6AEF765B}"
 	ProjectSection(SolutionItems) = preProject
-		BuildRedwoodDM.sql = BuildRedwoodDM.sql
+		DM Build\BuildRedwoodDM.sql = DM Build\BuildRedwoodDM.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OLTP Build", "OLTP Build", "{24213FAE-47A0-4102-B5B2-E22593D00F1F}"
+	ProjectSection(SolutionItems) = preProject
+		..\RechargeVending\OLTP Build\BuildRechargeOLTP.sql = ..\RechargeVending\OLTP Build\BuildRechargeOLTP.sql
 	EndProjectSection
 EndProject
 Global
