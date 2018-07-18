@@ -1,4 +1,4 @@
-﻿-- Recharge Vending database developed and written by Brian Corcoran
+﻿-- RedwoodDM database developed and written by Brian Corcoran and Max Mershon
 -- Originally Written: July 2018
 -----------------------------------------------------------
 IF NOT EXISTS(SELECT * FROM sys.databases
@@ -20,7 +20,7 @@ IF EXISTS(
 IF EXISTS(
  SELECT *
  FROM sys.tables
- WHERE name = N'DimBidAgent'
+ WHERE name = N'DimAgent'
        )
  DROP TABLE DimBidAgent;
 --
@@ -86,9 +86,9 @@ CREATE TABLE DimDate
   MonthName  NVARCHAR(25) NOT NULL
  );
 --
-CREATE TABLE DimBidAgent
- (BidAgent_SK   INT NOT NULL IDENTITY(1,1) CONSTRAINT pk_bid_agent_sk PRIMARY KEY,
-  BidAgent_AK INT NOT NULL,
+CREATE TABLE DimAgent
+ (Agent_SK   INT NOT NULL IDENTITY(1,1) CONSTRAINT pk_agent_sk PRIMARY KEY,
+  Agent_AK INT NOT NULL,
   FirstName NVARCHAR(30) NOT NULL,
   LastName  NVARCHAR(30) NOT NULL,
   Title  NVARCHAR(20) NOT NULL,
@@ -99,13 +99,15 @@ CREATE TABLE DimBidAgent
 --
 CREATE TABLE FactBids
  (BidDate INT NOT NULL CONSTRAINT fk_bid_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
-  BidAgent_SK INT NOT NULL CONSTRAINT fk_bid_agent_sk FOREIGN KEY REFERENCES DimBidAgent(BidAgent_SK),
+  BidAgent_SK INT NOT NULL CONSTRAINT fk_bid_agent_sk FOREIGN KEY REFERENCES DimAgent(Agent_SK),
+  ListingAgent_SK INT NOT NULL CONSTRAINT fk_listing_agent_sk FOREIGN KEY REFERENCES DimAgent(Agent_SK),
   ListingDate INT NOT NULL CONSTRAINT fk_listing_date_sk FOREIGN KEY REFERENCES DimDate(Date_SK),
   Property_SK INT NOT NULL CONSTRAINT fk_property_sk FOREIGN KEY REFERENCES DimProperty(Property_SK),
   Customer_SK INT NOT NULL CONSTRAINT fk_customer_sk FOREIGN KEY REFERENCES DimCustomer(Customer_SK),
   ListingPrice DECIMAL(10,2) NOT NULL,
   BidPrice DECIMAL(10,2) NOT NULL,
-  CommissionRate NUMERIC(4,4) NOT NULL
+  CommissionRate NUMERIC(4,4) NOT NULL,
+  CONSTRAINT pk_FactBids PRIMARY KEY(BidDate, BidAgent_SK, Property_SK, Customer_SK)
  );
 
 GO
