@@ -15,6 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Build", "DM Build", "{5C
 		DM Build\BuildRedwoodDM.sql = DM Build\BuildRedwoodDM.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM ETL", "DM ETL", "{8D88C702-31FA-4B7A-8AE3-44EB472F495F}"
+	ProjectSection(SolutionItems) = preProject
+		DM ETL\SelectData.sql = DM ETL\SelectData.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
