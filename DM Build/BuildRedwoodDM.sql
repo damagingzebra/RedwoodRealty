@@ -22,7 +22,7 @@ IF EXISTS(
  FROM sys.tables
  WHERE name = N'DimAgent'
        )
- DROP TABLE DimBidAgent;
+ DROP TABLE DimAgent;
 --
 IF EXISTS(
  SELECT *
@@ -55,7 +55,9 @@ CREATE TABLE DimCustomer
   Type    NVARCHAR(25) NOT NULL,
   City    NVARCHAR(50) NOT NULL,
   State   NVARCHAR(20) NOT NULL,
-  ZipCode NVARCHAR(10) NOT NULL
+  ZipCode NVARCHAR(10) NOT NULL,
+  StartDate	 DATETIME NOT NULL,
+  EndDate  DATETIME NULL
  );
 --
 CREATE TABLE DimProperty
@@ -69,22 +71,45 @@ CREATE TABLE DimProperty
   SqFt INT NOT NULL,
   LotSize NUMERIC(4,2) NOT NULL,
   YearBuilt NUMERIC(4) NOT NULL,
-  City    NVARCHAR(25) NOT NULL,
+  City    NVARCHAR(30) NOT NULL,
   State   NVARCHAR(25) NOT NULL,
   ZipCode NVARCHAR(10) NOT NULL
  );
 --
 CREATE TABLE DimDate
- (Date_SK   INT NOT NULL CONSTRAINT pk_date_sk PRIMARY KEY,
-  Date      Date NOT NULL,
-  DateName  NVARCHAR(25) NOT NULL,
-  Year      INT NOT NULL,
-  YearName  NVARCHAR(25) NOT NULL,
-  Quarter   INT NOT NULL,
-  QuarterName  NVARCHAR(25) NOT NULL,
-  Month     INT NOT NULL,
-  MonthName  NVARCHAR(25) NOT NULL
- );
+	(Date_SK				INT PRIMARY KEY, 
+	Date				DATE,
+	FullDate			NCHAR(10),-- Date in MM-dd-yyyy format
+	DayOfMonth			INT, -- Field will hold day number of Month
+	DayName				NVARCHAR(9), -- Contains name of the day, Sunday, Monday 
+	DayOfWeek			INT,-- First Day Sunday=1 and Saturday=7
+	DayOfWeekInMonth	INT, -- 1st Monday or 2nd Monday in Month
+	DayOfWeekInYear		INT,
+	DayOfQuarter		INT,
+	DayOfYear			INT,
+	WeekOfMonth			INT,-- Week Number of Month 
+	WeekOfQuarter		INT, -- Week Number of the Quarter
+	WeekOfYear			INT,-- Week Number of the Year
+	Month				INT, -- Number of the Month 1 to 12{}
+	MonthName			NVARCHAR(9),-- January, February etc
+	MonthOfQuarter		INT,-- Month Number belongs to Quarter
+	Quarter				NCHAR(2),
+	QuarterName			NVARCHAR(9),-- First,Second..
+	Year				INT,-- Year value of Date stored in Row
+	YearName			CHAR(7), -- CY 2017,CY 2018
+	MonthYear			CHAR(10), -- Jan-2018,Feb-2018
+	MMYYYY				INT,
+	FirstDayOfMonth		DATE,
+	LastDayOfMonth		DATE,
+	FirstDayOfQuarter	DATE,
+	LastDayOfQuarter	DATE,
+	FirstDayOfYear		DATE,
+	LastDayOfYear		DATE,
+	IsHoliday			BIT,-- Flag 1=National Holiday, 0-No National Holiday
+	IsWeekday			BIT,-- 0=Week End ,1=Week Day
+	Holiday				NVARCHAR(50),--Name of Holiday in US
+	Season				NVARCHAR(10)--Name of Season
+	);
 --
 CREATE TABLE DimAgent
  (Agent_SK   INT NOT NULL IDENTITY(1,1) CONSTRAINT pk_agent_sk PRIMARY KEY,
@@ -92,9 +117,11 @@ CREATE TABLE DimAgent
   FirstName NVARCHAR(30) NOT NULL,
   LastName  NVARCHAR(30) NOT NULL,
   Title  NVARCHAR(20) NOT NULL,
-  HireDate DATE NOT NULL,
+  HireDate DATETIME NOT NULL,
   LicenseDate DATE NOT NULL,
-  LicenseStatus  NVARCHAR(25) NOT NULL
+  LicenseStatus  NVARCHAR(25) NOT NULL,
+  StartDate	 DATETIME NOT NULL,
+  EndDate  DATETIME NULL
 );
 --
 CREATE TABLE FactBids

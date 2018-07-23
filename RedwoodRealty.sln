@@ -20,9 +20,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM ETL", "DM ETL", "{8D88C7
 		DM ETL\SelectData.sql = DM ETL\SelectData.sql
 	EndProjectSection
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DM ETL", "RedwoodETL\DM ETL.dtproj", "{C5ADD760-F9CE-4B55-BCA6-7B19C181250B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5ADD760-F9CE-4B55-BCA6-7B19C181250B}.Development|Default.ActiveCfg = Development
+		{C5ADD760-F9CE-4B55-BCA6-7B19C181250B}.Development|Default.Build.0 = Development
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5ADD760-F9CE-4B55-BCA6-7B19C181250B} = {8D88C702-31FA-4B7A-8AE3-44EB472F495F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF2D81C4-2387-46FF-A3D1-F9C29BD8512D}
