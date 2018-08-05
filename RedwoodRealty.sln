@@ -25,7 +25,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Multidimensional Analysis", "DM Multidimensional Analysis", "{65CE962D-DC07-42F7-954A-C88E7F9F7071}"
 	ProjectSection(SolutionItems) = preProject
 		DM Multidimensional Analysis\Redwood Multidimensional Analysis.xlsx = DM Multidimensional Analysis\Redwood Multidimensional Analysis.xlsx
+		DM Multidimensional Analysis\Redwood Multidimensional Analysis_Cube.xlsx = DM Multidimensional Analysis\Redwood Multidimensional Analysis_Cube.xlsx
 	EndProjectSection
+EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "OLAP", "DM Multidimensional Analysis\OLAP\OLAP.dwproj", "{77EA0D51-8419-4758-AB21-4A80A944DCA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,12 +37,16 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C5ADD760-F9CE-4B55-BCA6-7B19C181250B}.Development|Default.ActiveCfg = Development
 		{C5ADD760-F9CE-4B55-BCA6-7B19C181250B}.Development|Default.Build.0 = Development
+		{77EA0D51-8419-4758-AB21-4A80A944DCA6}.Development|Default.ActiveCfg = Development
+		{77EA0D51-8419-4758-AB21-4A80A944DCA6}.Development|Default.Build.0 = Development
+		{77EA0D51-8419-4758-AB21-4A80A944DCA6}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C5ADD760-F9CE-4B55-BCA6-7B19C181250B} = {8D88C702-31FA-4B7A-8AE3-44EB472F495F}
+		{77EA0D51-8419-4758-AB21-4A80A944DCA6} = {65CE962D-DC07-42F7-954A-C88E7F9F7071}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF2D81C4-2387-46FF-A3D1-F9C29BD8512D}
