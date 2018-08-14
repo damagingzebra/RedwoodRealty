@@ -30,6 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Multidimensional Analysi
 EndProject
 Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "OLAP", "DM Multidimensional Analysis\OLAP\OLAP.dwproj", "{77EA0D51-8419-4758-AB21-4A80A944DCA6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Report Dashboard", "DM Report Dashboard", "{895A5C55-72DF-43C0-8AED-BC0307DBBB18}"
+	ProjectSection(SolutionItems) = preProject
+		DM Multidimensional Analysis\Redwood Dashboard.pbix = DM Multidimensional Analysis\Redwood Dashboard.pbix
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
